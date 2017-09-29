@@ -31,7 +31,7 @@ Caused by: java.lang.UnsatisfiedLinkError: no libsnappyjava.dylib in java.librar
   It is related to a Java call `System.mapLibraryName()`. If you call `System.mapLibraryName("snappyjava")`, it will prepend "lib" at the beginning of string and based on OS to choose extension. This will use `.so` on Linux and `.dll` on Windows. MAC OS support multiple extensions, and the `mapLibraryName` method can only support one by design. In **Java 6** `.jnilib` is used and **Java 7+** starts to use `.dylib` instead. The version `1.1.0.1-redhat.002` of **snappy-java** only packages file `libsnappyjava.jnilib`, hence the error.
   
   ## Treatment
-  1. Extract 'jboss-fuse-6.3.0.redhat-283/system/org/xerial/snappy/snappy-java/1.1.0.1-redhat.002/snappy-java-1.1.0.1-redhat.002.jar'.
+  1. Extract `jboss-fuse-6.3.0.redhat-283/system/org/xerial/snappy/snappy-java/1.1.0.1-redhat.002/snappy-java-1.1.0.1-redhat.002.jar`.
   2. Rename `snappy-java-1.1.0.1-redhat.002/org/xerial/snappy/native/Mac/x86_64/libsnappyjava.jnilib` file to `libsnappyjava.dylib` (If you're using macOS 32-Bit then rename the file in `../x86` directory instead).
   3. Open `snappy-java-1.1.0.1-redhat.002/META-INF/MANIFEST.MF` in a text editor and rename `libsnappyjava.jnilib` to `libsnappyjava.dylib` in `Bundle-NativeCode:` section.
   4. Repackage the extracted `jboss-fuse-6.3.0.redhat-283` directory to `.jar` file and put it back to the same path.
