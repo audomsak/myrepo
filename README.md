@@ -1,3 +1,3 @@
 # myrepo
 
-upate repo
+update repo
