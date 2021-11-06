@@ -10,8 +10,8 @@ for i in {1..10}; do
   echo "--------------------------------------------------------------------------------------------"
   
   for j in {1..10}; do
-    dateTime=`date '+%d-%m-%Y %H:%M:%S%Z'`
-    echo "Round: $j\t$dateTime"
+    dateTime=`date '+%d-%m-%Y %H:%M:%S %Z'`
+    echo "Round: $j  $dateTime"
     echo "--------------------------------------------------------------------------------------------"
     group=`expr $concurrent + $j`
     
